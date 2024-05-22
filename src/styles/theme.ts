@@ -1,17 +1,15 @@
 // src/styles/theme.ts
 import { createTheme } from '@mui/material/styles';
-
 import { Montserrat } from 'next/font/google';
 
-export const font = Montserrat({
+const font = Montserrat({
   subsets: ['latin'],
 });
 
+export const fontFamily = font.className;
 
-const theme = createTheme({
+export const theme = createTheme({
   typography: {
-    fontFamily: 'Montserrat',
+    fontFamily: fontFamily, // Aqui estamos usando fontFamily, que contém a classe de fonte
   },
 });
-
-export default theme;
