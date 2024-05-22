@@ -1,7 +1,6 @@
 import React from "react";
 import { AppBar, Drawer, List, ListItem, Toolbar, Typography, useMediaQuery, useTheme, IconButton, Stack, Box, Button, Avatar, Tab, Tabs } from "@mui/material";
 
-import { TabList, TabContext } from '@mui/lab';
 
 import MenuIcon from "@mui/icons-material/Menu";
 
@@ -30,6 +29,10 @@ export function Header() {
     };
 
 
+    const colorTextTab = {
+        color: 'white'
+    }
+
     return (
         <AppBar position="fixed" sx={{ background: '#67B1B4' }}>
             <Toolbar sx={{mx:'5px'}}>
@@ -46,7 +49,7 @@ export function Header() {
                             fontSize: {
                                 xs: '15px', 
                                 sm: 'large', 
-                                md: '20px',
+                                md: '22px',
                                 lg: 'x-large'
                             }
                         }}
@@ -63,7 +66,7 @@ export function Header() {
                             value={value}
                             onChange={handleChange}
                             indicatorColor="secondary"
-                            textColor="secondary"
+                            textColor='null'
                             variant="fullWidth"
                             TabIndicatorProps={{
                                 style: {
@@ -72,15 +75,16 @@ export function Header() {
                             }}
                             sx={{
                                 "& .Mui-selected": {
-                                    color: 'Black', // Cor do texto da aba selecionada
+                                    color: '#000',
                                 },
+
                             }}
 
                             >
-                                <Tab label="Home" value="1" sx={{ color: 'white'}}/>
-                                <Tab label="Sobre" value="2" sx={{ color: 'white' }}/>
-                                <Tab label="Sobre" value="3" sx={{ color: 'white' }}/>
-                                <Tab label="Contato" value="4" sx={{ color: 'white' }}/>
+                                <Tab label="Home" value="1" sx={{  color: 'white',fontSize: '16px'}}/>
+                                <Tab label="Sobre" value="2" sx={{ color: 'white',fontSize: '16px', }}/>
+                                <Tab label="Estrutura" value="3" sx={{ color: 'white',fontSize: '16px', }}/>
+                                <Tab label="Contato" value="4" sx={{ color: 'white',fontSize: '16px', }}/>
                             </Tabs>
                 </Stack>
             </Box>
@@ -102,6 +106,7 @@ export function Header() {
                                 variant="fullWidth"
                                 value={value}
                                 onChange={handleChange}
+                                textColor='null'
                                 TabIndicatorProps={{
                                     style: {
                                         backgroundColor: 'black' 
@@ -110,7 +115,7 @@ export function Header() {
                                 }}
                                 sx={{
                                     "& .Mui-selected": {
-                                        color: '#000000',
+                                        color: '#000',
                                         fontSize: '22px',
                                         marginBottom: 3
                                     },
