@@ -59,17 +59,18 @@ export function Header() {
 
             <Box sx={{ display: { xs: 'none', md: 'block' } }}>
                 <Stack direction='row' spacing={2}>
-                    <TabContext value={value}>
-                            <Tabs 
+                        <Tabs 
                             value={value}
                             onChange={handleChange}
                             indicatorColor="secondary"
                             textColor="secondary"
                             variant="fullWidth"
+                            TabIndicatorProps={{
+                                style: {
+                                    backgroundColor: 'black' 
+                                }
+                            }}
                             sx={{
-                                "& .MuiTabs-indicator": {
-                                    backgroundColor: 'Black', // Cor do indicador
-                                },
                                 "& .Mui-selected": {
                                     color: 'Black', // Cor do texto da aba selecionada
                                 },
@@ -81,7 +82,6 @@ export function Header() {
                                 <Tab label="Sobre" value="3" sx={{ color: 'white' }}/>
                                 <Tab label="Contato" value="4" sx={{ color: 'white' }}/>
                             </Tabs>
-                    </TabContext>
                 </Stack>
             </Box>
 
@@ -96,17 +96,36 @@ export function Header() {
                         open={isOpen}
                         onClose={toggleDrawer}
                     >
-                        <List>
-                            <ListItem onClick={() => { }}>
-                                <Button variant="text">Text</Button>
-                            </ListItem>
-                            <ListItem onClick={() => { }}>
-                                <Button variant="text">Text</Button>
-                            </ListItem>
-                            <ListItem onClick={() => { }}>
-                                <Button variant="text">Text</Button>
-                            </ListItem>
-                        </List>
+
+                            <Tabs 
+                                orientation="vertical"
+                                variant="fullWidth"
+                                value={value}
+                                onChange={handleChange}
+                                TabIndicatorProps={{
+                                    style: {
+                                        backgroundColor: 'black' 
+                                        
+                                    }
+                                }}
+                                sx={{
+                                    "& .Mui-selected": {
+                                        color: '#000000',
+                                        fontSize: '22px',
+                                        marginBottom: 3
+                                    },
+                                    borderRight: 2, borderColor: 'divider',
+                                    marginTop: 5,
+                                    width:200,
+                                    
+                                }}
+
+                            >
+                                <Tab label="Home" value="1" sx={{ color: '#2e3033', fontSize: 'large', marginBottom: 3}}/>
+                                <Tab label="Sobre" value="2" sx={{ color: '#2e3033',fontSize: 'large', marginBottom: 3}}/>
+                                <Tab label="Estrutura" value="3" sx={{ color: '#2e3033', fontSize: 'large', marginBottom: 3}}/>
+                                <Tab label="Contato" value="4" sx={{ color: '#2e3033', fontSize: 'large', marginBottom: 3}}/>
+                            </Tabs>
                     </Drawer>
                 </>
             )}
