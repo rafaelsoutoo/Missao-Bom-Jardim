@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, Drawer, List, ListItem, Toolbar, Typography, useMediaQuery, useTheme, IconButton, Stack, Box, Button, Avatar, Tab, Tabs, createTheme, ThemeProvider } from "@mui/material";
+import { AppBar, Drawer, Toolbar, Typography, useMediaQuery, useTheme, IconButton, Stack, Box, Button, Avatar, Tab, Tabs, createTheme, ThemeProvider } from "@mui/material";
 
 import MenuIcon from "@mui/icons-material/Menu";
 
@@ -37,8 +37,6 @@ export function Header() {
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const [isOpen, setIsOpen] = React.useState(false);
 
-    const router = useRouter();
-
     const [value, setValue] = React.useState('1');
 
     const handleChange = (event: React.SyntheticEvent, newValue: string) => {
@@ -54,9 +52,11 @@ export function Header() {
             <AppBar position="fixed" sx={{ background: '#67B1B4', maxWidth:2300, zIndex:"1000", left:"50%",transform:"translateX(-50%)"}} >
                 <Toolbar sx={{ mx: '5px' }}>
                     <Stack direction='row' sx={{ flexGrow: 1 }} alignItems="center">
-                        <Avatar src="logo.png" sx={{ width: '80px', height: '50px', cursor: 'pointer' }} onClick={() => {
-                            router.push("/");
-                        }} />
+                        <Avatar 
+                            src="logo.png" 
+                            sx={{ width: '80px', height: '50px', cursor: 'pointer'}}
+                            onClick={() => window.location.reload()} 
+                            />
                         <Typography
                             sx={{
                                 justifyContent: 'flex-start',
